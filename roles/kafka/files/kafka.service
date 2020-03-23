@@ -4,8 +4,8 @@ After=network.target remote-fs.target
  
 [Service]
 Type=forking
-ExecStart=/usr/bin/kafka-server-start -daemon /etc/kafka/server.properties
-ExecStop=/usr/bin/kafka-server-stop
+ExecStart=/opt/kafka/bin/kafka-server-start.sh -daemon /opt/kafka/config/server.properties
+ExecStop=/opt/kafka/bin/kafka-server-start.sh
  
 LimitNPROC=1000000
 LimitNOFILE=1000000
