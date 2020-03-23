@@ -1,0 +1,37 @@
+- name: Add or modify hard nofile limits for wildcard domain
+  pam_limits:
+    domain: '*'
+    limit_type: -
+    limit_item: nofile
+    value: 100000
+
+- name: create directory /data/kafka/
+  file: 
+    dest: /data/kafka/
+    state: directory
+
+- name: Remove file consumer.properties
+  file:
+    path: /opt/kafka/config/consumer.properties
+    state: absent
+
+- name: Remove file produce.properties
+  file:
+    path: /opt/kafka/config/consumer.properties
+    state: absent
+
+- name: configure consumer.properties
+  copy:
+    src: consumer.properties.j2
+    dest: /opt/kafka/config/consumer.properties
+
+- name: configure kafka.service
+  copy:
+    src: kafka.service
+    dest: /etc/systemd/system/kafka.service
+  
+- name: start kafka
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: kafka
