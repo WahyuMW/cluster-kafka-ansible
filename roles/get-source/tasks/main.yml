@@ -48,3 +48,6 @@
     src: /opt/kafka_2.12-0.10.2.1.tgz 
     dest: /opt/
     remote_src: yes
+  
+- name: Rename kafkadir 
+  command: mv /opt/kafka_2.12-0.10.2.1 /opt/kafka
