@@ -1,16 +1,16 @@
 ---
 - hosts: all
   become: yes
-  tasks: 
+  roles: 
     - get-source
 
 - hosts: zookeeper
   become: yes
-  tasks: 
+  roles: 
     - zookeeper
 
 - hosts: kafka
   become: yes
-  tasks: 
+  roles: 
     - kafka
 
