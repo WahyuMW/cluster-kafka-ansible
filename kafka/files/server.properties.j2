@@ -1,0 +1,13 @@
+broker.id= {{ server_id }}
+advertised.listeners=PLAINTEXT://kafka1:9092
+delete.topic.enable=true
+log.dirs=/data/kafka
+num.partitions=8
+default.replication.factor=3
+min.insync.replicas=2
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+zookeeper.connect={{ zookeeper_1 }}:2181,{{ zookeeper_2 }}:2181,{{ zookeeper_3 }}:2181/kafka
+zookeeper.connection.timeout.ms=6000
+auto.create.topics.enable=true

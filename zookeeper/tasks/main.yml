@@ -1,0 +1,44 @@
+- name: create directory /data/zookeper/
+  file: 
+    dest: /data/zookeper/
+    state: directory
+
+- name: create file /data/zookeper/file
+  file: 
+    dest: /data/zookeper/myid
+    state: file
+
+- name: set all myid server
+  lineinfile:
+    dest: /data/zookeper/myid
+    line: '{{ server_id }}'
+    state: present
+
+- name: Remove file (delete file)
+  file:
+    path: /opt/kafka/config/zookeeper.properties
+    state: absent
+  
+- name: configure zookeeper.properties
+  copy:
+    src: zookeeper.properties.j2
+    dest: /opt/kafka/config/zookeeper.properties
+
+- name: set all of nodes to zookeeper.properties
+  lineinfile:
+    dest: /opt/kafka/config/zookeeper.properties
+    line: 'server.{{ hostvars[item].server_id }}={{ item }}:2888:3888'
+    state: present
+  with_items: "{{ ansible_play_hosts }}"
+  when: hostvars[item].ansible_host is defined
+
+- name: configure zookeeper.service
+  copy:
+    src: zookeeper.service
+    dest: /etc/systemd/system/zookeeper.service
+  
+- name: start zookeeper
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: zookeeper

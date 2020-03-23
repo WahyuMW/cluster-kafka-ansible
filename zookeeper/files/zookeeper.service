@@ -1,0 +1,15 @@
+[Unit]
+Description=Zookeeper Server
+After=network.target remote-fs.target
+ 
+[Service]
+Type=forking
+Environment="LOG_DIR=/var/log/zookeeper"
+ExecStart=/opt/kafka/bin/zookeeper-server-start.sh -daemon /opt/kafka/config/zookeeper.properties
+ExecStop=/opt/kafka/bin/zookeeper-server-stop.sh
+ 
+LimitNPROC=1000000
+LimitNOFILE=1000000
+ 
+[Install]
+WantedBy=multi-user.target
