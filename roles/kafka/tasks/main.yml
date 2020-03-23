@@ -17,7 +17,7 @@
     state: absent
 
 - name: configure server.properties
-  copy:
+  template:
     src: server.properties.j2
     dest: /opt/kafka/config/server.properties
 
