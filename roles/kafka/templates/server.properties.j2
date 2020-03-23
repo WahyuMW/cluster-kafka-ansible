@@ -1,5 +1,5 @@
 broker.id={{ server_id }}
-advertised.listeners=PLAINTEXT:// {{ inventory_hostname }}:9092
+advertised.listeners=PLAINTEXT://{{ inventory_hostname }}:9092
 delete.topic.enable=true
 log.dirs=/data/kafka
 num.partitions=8
