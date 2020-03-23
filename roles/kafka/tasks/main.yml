@@ -1,3 +1,4 @@
+---
 - name: Add or modify hard nofile limits for wildcard domain
   pam_limits:
     domain: '*'
@@ -10,20 +11,15 @@
     dest: /data/kafka/
     state: directory
 
-- name: Remove file consumer.properties
+- name: Remove file server.properties
   file:
-    path: /opt/kafka/config/consumer.properties
+    path: /opt/kafka/config/server.properties
     state: absent
 
-- name: Remove file produce.properties
-  file:
-    path: /opt/kafka/config/consumer.properties
-    state: absent
-
-- name: configure consumer.properties
+- name: configure server.properties
   copy:
-    src: consumer.properties.j2
-    dest: /opt/kafka/config/consumer.properties
+    src: server.properties.j2
+    dest: /opt/kafka/config/server.properties
 
 - name: configure kafka.service
   copy:

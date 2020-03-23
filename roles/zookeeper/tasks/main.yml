@@ -1,3 +1,4 @@
+---
 - name: create directory /data/zookeper/
   file: 
     dest: /data/zookeper/
