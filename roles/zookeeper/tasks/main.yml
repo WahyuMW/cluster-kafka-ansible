@@ -1,17 +1,17 @@
 ---
-- name: create directory /data/zookeper/
+- name: create directory /data/zookeeper/
   file: 
-    dest: /data/zookeper/
+    dest: /data/zookeeper/
     state: directory
 
-- name: create file /data/zookeper/file
+- name: create file /data/zookeeper/file
   file: 
-    dest: /data/zookeper/myid
+    dest: /data/zookeeper/myid
     state: touch
 
 - name: set all myid server
   lineinfile:
-    dest: /data/zookeper/myid
+    dest: /data/zookeeper/myid
     line: '{{ server_id }}'
     state: present
 
