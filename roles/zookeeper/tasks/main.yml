@@ -7,7 +7,7 @@
 - name: create file /data/zookeper/file
   file: 
     dest: /data/zookeper/myid
-    state: file
+    state: touch
 
 - name: set all myid server
   lineinfile:
