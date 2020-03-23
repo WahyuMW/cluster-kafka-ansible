@@ -43,3 +43,4 @@
     state: started
     daemon_reload: yes
     name: zookeeper
+    enabled: yes

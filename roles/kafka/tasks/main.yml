@@ -31,3 +31,4 @@
     state: started
     daemon_reload: yes
     name: kafka
+    enabled: yes
