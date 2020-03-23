@@ -1,5 +1,0 @@
-[zookeper]
-hostname    ansible_host=1.1.1.1 server_id=1
-
-[kafka]
-hostname    ansible_host=1.1.1.1 server_id=1 zookeper_1=hostname_zookeeper

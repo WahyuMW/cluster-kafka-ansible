@@ -1,0 +1,10 @@
+[kafka]
+wmw-kafka-cl1-1				ansible_host=192.168.248.12		
+wmw-kafka-cl1-2				ansible_host=192.168.248.108		
+wmw-kafka-cl1-3				ansible_host=192.168.248.13		
+ 
+[zookeper]
+wmw-zookeper-cl1-1				ansible_host=192.168.248.119		
+wmw-zookeper-cl1-2				ansible_host=192.168.248.117		
+wmw-zookeper-cl1-3				ansible_host=192.168.248.104		
+ 
