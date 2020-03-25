@@ -1,6 +1,6 @@
 ---
 - name: Include install docker
-import_playbook: 
+  import_playbook: 
     - install-docker.yml
 
 - name: Create docker
