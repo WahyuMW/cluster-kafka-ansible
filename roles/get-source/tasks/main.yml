@@ -50,9 +50,9 @@
 - name: Extract 
   unarchive:
     src: /opt/kafka_2.12-0.10.2.1.tgz 
-    dest: /opt/kafka
+    dest: /opt/
     remote_src: yes
   
-#- name: Rename kafka dir 
-#  command: mv /opt/kafka_2.12-0.10.2.1 /opt/kafka
-#  ignore_errors: yes
+- name: Rename kafka dir 
+  command: mv /opt/kafka_2.12-0.10.2.1 /opt/kafka
+  ignore_errors: yes
