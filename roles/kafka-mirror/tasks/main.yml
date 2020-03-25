@@ -22,12 +22,12 @@
     state: absent
 
 - name: configure consumer.properties
-  templates:
+  template:
     src: consumer.properties.j2
     dest: /opt/kafka/config/consumer.properties
 
 - name: configure producer.properties
-  templates:
+  template:
     src: producer.properties.j2
     dest: /opt/kafka/config/producer.properties
 
