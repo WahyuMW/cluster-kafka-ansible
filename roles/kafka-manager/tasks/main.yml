@@ -1,0 +1,15 @@
+---
+- name: Include install docker
+  include: 
+    - install-docker.yml
+
+- name: Create docker
+  docker: 
+    name: kafka-manager
+    image: qnib/plain-kafka-manager
+    network_mode: host
+    #env:
+      #ZOOKEEPER_HOSTS: "{{ zookeeper_1 }}:2181,{{ zookeeper_2 }}:2181,{{ zookeeper_3}}:2181"
+      #APPLICATION_SECRET: change_me_please
+    restart_policy : always
+

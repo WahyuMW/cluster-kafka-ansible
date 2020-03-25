@@ -7,6 +7,3 @@ wmw-zookeper-cl1-3				ansible_host=192.168.248.104    server_id=3
 wmw-kafka-cl1-1				ansible_host=192.168.248.12		server_id=1     zookeeper_1=wmw-zookeper-cl1-1     zookeeper_2=wmw-zookeper-cl1-2     zookeeper_3=wmw-zookeper-cl1-3
 wmw-kafka-cl1-2				ansible_host=192.168.248.108	server_id=2     zookeeper_1=wmw-zookeper-cl1-1     zookeeper_2=wmw-zookeper-cl1-2     zookeeper_3=wmw-zookeper-cl1-3	
 wmw-kafka-cl1-3				ansible_host=192.168.248.13		server_id=3     zookeeper_1=wmw-zookeper-cl1-1     zookeeper_2=wmw-zookeper-cl1-2     zookeeper_3=wmw-zookeper-cl1-3
- 
-		
- 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Kafka Broker
+After=network.target remote-fs.target 
+ 
+[Service]
+Type=forking
+ExecStart=/opt/kafka/bin/kafka-mirror-maker.sh --consumer.config /opt/kafka/config/consumer.properties --producer.config /opt/kafka/config/producer.properties --whitelist "{{ kafka_mirror_topic | default('.*') }}"
+ 
+LimitNPROC=1000000
+LimitNOFILE=1000000
+ 
+[Install]
+WantedBy=multi-user.target

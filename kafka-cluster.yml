@@ -14,3 +14,8 @@
   roles: 
     - kafka
 
+- hosts: kafka-client
+  become: yes
+  roles: 
+    - kafka-mirror
+    - kafka-manager

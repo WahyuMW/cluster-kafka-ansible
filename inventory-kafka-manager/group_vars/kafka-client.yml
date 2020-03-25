@@ -1,0 +1,2 @@
+broker_host_source: 192.168.248.12:9092
+broker_host_target: 192.168.248.70:9092

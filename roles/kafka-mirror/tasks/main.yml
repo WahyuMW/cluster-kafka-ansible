@@ -16,15 +16,20 @@
     path: /opt/kafka/config/consumer.properties
     state: absent
 
-- name: Remove file produce.properties
+- name: Remove file producer.properties
   file:
-    path: /opt/kafka/config/consumer.properties
+    path: /opt/kafka/config/producer.properties
     state: absent
 
 - name: configure consumer.properties
-  copy:
+  templates:
     src: consumer.properties.j2
     dest: /opt/kafka/config/consumer.properties
+
+- name: configure producer.properties
+  templates:
+    src: producer.properties.j2
+    dest: /opt/kafka/config/producer.properties
 
 - name: configure kafka.service
   copy:
@@ -35,4 +40,5 @@
   systemd:
     state: started
     daemon_reload: yes
+    enabled: yes
     name: kafka
